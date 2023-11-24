@@ -1,14 +1,15 @@
 import { Outlet } from "react-router-dom/dist";
-import Navbar from "../Components/Navbar/Navbar";
 import NavItems from "../Components/NavItems/NavItems";
+import Navbar from "../Components/Navbar/Navbar";
 
 const Front = () => {
   return (
     <div className="drawer">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col">
+      <div className="drawer-content">
         {/* Navbar */}
         <Navbar />
+
         {/* Page content here */}
         <div className="w-full">
           <Outlet />

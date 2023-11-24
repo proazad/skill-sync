@@ -1,13 +1,17 @@
 import Banner from "../../Components/Banner/Banner";
 import HelmetTitle from "../../Components/HelmetTitle/HelmetTitle";
+import Partners from "../../Components/Partners/Partners";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <HelmetTitle title={"HOME"} />
       <Banner />
-      <h1 className="text-4xl">Home</h1>
-    </div>
+      <section>
+        {/* <Banner /> */}
+      <Partners />
+      </section>
+    </>
   );
 };
 
