@@ -1,6 +1,8 @@
-import bg from "../../assets/home.png";
-import bg1 from "../../assets/home-image.png";
 import { FaUserGroup } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+import bg1 from "../../assets/home-image.png";
+import bg from "../../assets/home.png";
+import CommonBtn from "../CommonBtn/CommonBtn";
 const Banner = () => {
   return (
     <section
@@ -8,10 +10,17 @@ const Banner = () => {
       style={{ backgroundImage: `url('${bg}')` }}
     >
       <div className="flex-1">
-        <h1 className="sm:text-4xl  lg:text-7xl xl:text-8xl font-bold">
+        <h1 className="sm:text-4xl  lg:text-7xl xl:text-8xl text-neutral font-bold">
           Better <br /> <span className="text-green-600">Learning Future</span>
           Starts With SkillSync
         </h1>
+        <p className="text-lg my-5 text-neutral hidden md:block">
+          SkillSync sparks a better learning future by nurturing skills,
+          fostering growth, and empowering individuals towards success
+        </p>
+        <Link to={"/allclasses"} className="">
+          <CommonBtn btntext="Explore Classes"/>
+        </Link>
       </div>
       <div className="flex-1 flex items-end relative">
         <img
