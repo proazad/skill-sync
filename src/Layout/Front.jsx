@@ -10,7 +10,7 @@ const Front = () => {
         {/* Navbar */}
         <Navbar />
         {/* Page content here */}
-        <div className="w-full px-5 bg-blue-600">
+        <div className="w-full">
           <Outlet />
         </div>
       </div>
