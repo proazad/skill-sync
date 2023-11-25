@@ -1,4 +1,5 @@
 import Banner from "../../Components/Banner/Banner";
+import BecomeMentor from "../../Components/BecomeMentor/BecomeMentor";
 import FeaturedCourse from "../../Components/FeaturedCourse/FeaturedCourse";
 import HelmetTitle from "../../Components/HelmetTitle/HelmetTitle";
 import Partners from "../../Components/Partners/Partners";
@@ -14,6 +15,7 @@ const Home = () => {
       <FeaturedCourse />
       <ReviewSection />
       <StatisticsSection />
+      <BecomeMentor />
     </>
   );
 };
