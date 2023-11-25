@@ -3,33 +3,21 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 // import './styles.css';
 
 // import required modules
-import { useEffect, useState } from "react";
 // import required modules
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import usePartner from "../../Hooks/usePartner";
+import SectionHead from "../SectionHead/SectionHead";
 
 const Partners = () => {
-  const [partners, setPartners] = useState([]);
-  useEffect(() => {
-    fetch("./Partners.json")
-      .then((res) => res.json())
-      .then((data) => setPartners(data));
-  }, []);
+  const [partners] = usePartner();
   return (
     <section className="container mx-auto py-10">
-      <div className="w-full lg:w-7/12 mx-auto lg:my-10 text-center">
-        <h2 className="text-3xl lg:text-4xl font-semibold uppercase mb-3">
-          Our Partners
-        </h2>
-        <p className="text-lg">
-          Explore and Acknowledge the Collaborative Strengths of Our Trusted and
-          Valued Partnerships
-        </p>
-      </div>
+      <SectionHead subtitle={"Our Partners"} titlep1={"Community"} titlep2={"Makes Unity"}/>
       <Swiper
         slidesPerView={3}
         spaceBetween={30}
@@ -44,13 +32,21 @@ const Partners = () => {
         className="mySwiper grid grid-cols-1 lg:grid-cols-4"
       >
         {partners?.map((partner) => (
-          <SwiperSlide key={partner.id} className="px-2">
-            <div className="h-48">
-              <img src={partner.image} alt={partner.companyName} className="w-full"/>
+         
+          <SwiperSlide
+            key={partner.id}
+            className="h-full select-none border p-5 rounded-md"
+          >
+            <div className="h-44">
+              <img
+                src={partner.image}
+                alt={partner.name}
+                className="w-full"
+              />
             </div>
             <div className="text-center my-4">
-              <h2 className="text-xl font-semibold">{partner.companyName}</h2>
-              <h2 className="text-base text-neutral">{partner.description}</h2>
+              <h2 className="text-xl font-semibold">{partner.name}</h2>
+              <h2 className="text-base text-neutral">{partner.description.slice(0,65)}</h2>
             </div>
           </SwiperSlide>
         ))}
