@@ -6,7 +6,7 @@ const BecomeMentor = () => {
   return (
     <section className="px-10 my-16">
       <SectionHead
-        subtitle={"Teachers"}
+        subtitle={"Instructor"}
         titlep1={"Become a"}
         titlep2={"Mentors"}
       />
