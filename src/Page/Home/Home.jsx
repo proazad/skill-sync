@@ -6,6 +6,7 @@ import OurInstructors from "../../Components/OurInstructors/OurInstructors";
 import Partners from "../../Components/Partners/Partners";
 import ReviewSection from "../../Components/ReviewSection/ReviewSection";
 import StatisticsSection from "../../Components/StatisticsSection/StatisticsSection";
+import UpcomingEvents from "../../Components/UpcomingEvents/UpcomingEvents";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <StatisticsSection />
       <OurInstructors />
       <BecomeMentor />
+      <UpcomingEvents />
     </>
   );
 };

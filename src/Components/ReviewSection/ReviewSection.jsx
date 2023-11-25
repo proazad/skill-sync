@@ -13,7 +13,6 @@ import useFeedback from "../../Hooks/useFeedback";
 import FeedbackCard from "../FeedbackCard/FeedbackCard";
 const ReviewSection = () => {
   const [reviews] = useFeedback();
-  console.log(reviews);
   return (
     <div className="px-10 my-16">
       <SectionHead
