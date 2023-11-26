@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
+import { FaBookOpenReader, FaRegStar, FaStar } from "react-icons/fa6";
+import { GiDuration } from "react-icons/gi";
+import { MdBookmarkAdded } from "react-icons/md";
+import Rating from "react-rating";
 import { Link, useParams } from "react-router-dom";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
-import { FaBookOpenReader, FaRegStar, FaStar } from "react-icons/fa6";
-import { MdBookmarkAdded } from "react-icons/md";
-import { GiDuration } from "react-icons/gi";
-import Rating from "react-rating";
 const CourseDetails = () => {
   const axiosPublic = useAxiosPublic();
   const [course, setCourse] = useState("");
@@ -14,7 +14,6 @@ const CourseDetails = () => {
     axiosPublic.get(`/courses/${id}`).then((data) => setCourse(data.data));
   }, [axiosPublic, id]);
   const {
-    _id,
     title,
     image,
     description,

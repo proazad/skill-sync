@@ -4,7 +4,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { useState } from "react";
 import SocialSignIn from "../../Components/SocialSignIn/SocialSignIn";
 import { Link } from "react-router-dom";
-const Signin = () => {
+const InstructorSignin = () => {
   const [showpass, setShowPass] = useState(false);
   const {
     register,
@@ -17,23 +17,19 @@ const Signin = () => {
     <section className="container mx-auto my-16">
       <HelmetTitle title={"SIGN IN"} />
       <div className="flex items-center">
-        <div className="flex-1 flex justify-center">
-          <img
-            src="https://i.ibb.co/vhgGwhw/student.jpg"
-            className="w-72"
-            alt=""
-          />
+        <div className="flex-1">
+          <img src="https://i.ibb.co/mTnLMxW/mentor.png" alt="" />
         </div>
         <div className="flex-1 px-10">
           <div className="join join-vertical lg:join-horizontal">
-            <Link to="/signin" className="btn join-item active">
-              Student Sign in
+            <Link to="/signin" className="btn join-item ">
+              Student Sign in{" "}
             </Link>
-            <Link to="/instructorSignin" className="btn join-item">
+            <Link to="/instructorSignin" className="btn join-item active">
               Instructor Sign in
             </Link>
           </div>
-          <h2 className="text-4xl my-5">Please Sign in (Student)</h2>
+          <h2 className="text-4xl my-5">Please Sign in (Instructor)</h2>
           <form onSubmit={handleSubmit(onSubmit)} className="">
             <div className="form-control max-w-md">
               <label>
@@ -75,7 +71,7 @@ const Signin = () => {
                   <FaRegEyeSlash className="text-2xl text-white" />
                 )}
               </p>
-              {errors.password && (
+              {errors.email && (
                 <span className="text-red-600 text-sm">
                   Password field is required
                 </span>
@@ -91,10 +87,10 @@ const Signin = () => {
               />
             </div>
             <p>
-              Don&apos;t have Account ? Please{" "}
-              <Link to="/signup" className="text-blue-600">
+              Don&apos;t have Account ? Please
+              <Link to="/instructorsignup" className="text-blue-600">
                 Sign up
-              </Link>{" "}
+              </Link>
               or
             </p>
             <SocialSignIn />
@@ -105,4 +101,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default InstructorSignin;

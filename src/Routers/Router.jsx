@@ -4,9 +4,10 @@ import AllClasses from "../Page/AllClasses/AllClasses";
 import CourseDetails from "../Page/CourseDetails/CourseDetails";
 import Errorpage from "../Page/Errorpage/Errorpage";
 import Home from "../Page/Home/Home";
-import Signup from "../Page/Registraion/Signup/Signup";
+import InstructorSignup from "../Page/Registraion/InstructorSignup";
+import StudentSignup from "../Page/Registraion/StudentSignup";
+import InstructorSignin from "../Page/Signin/InstructorSignin";
 import Signin from "../Page/Signin/Signin";
-import TeachOnSkillSync from "../Page/TeachOnSkillSync/TeachOnSkillSync";
 
 const Router = createBrowserRouter([
   {
@@ -20,9 +21,10 @@ const Router = createBrowserRouter([
         path: "/course/:id",
         element: <CourseDetails />,
       },
-      { path: "/teachonskillsync", element: <TeachOnSkillSync /> },
+      { path: "/instructorSignup", element: <InstructorSignup /> },
+      { path: "/signup", element: <StudentSignup /> },
       { path: "/signin", element: <Signin /> },
-      { path: "/signup", element: <Signup /> },
+      { path: "/instructorSignin", element: <InstructorSignin /> },
     ],
   },
 ]);

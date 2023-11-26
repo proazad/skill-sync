@@ -29,7 +29,7 @@ const BecomeMentor = () => {
             skill development, and contribute to a vibrant educational
             ecosystem. Start your journey as an instructor today.
           </p>
-          <Link to={"/becomementor"}>
+          <Link to={"/teachonskillsync"}>
             <CommonBtn btntext={"Become an Instructor"} />
           </Link>
         </div>
