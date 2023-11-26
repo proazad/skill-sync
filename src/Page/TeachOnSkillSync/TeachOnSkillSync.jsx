@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import HelmetTitle from "../../../Components/HelmetTitle/HelmetTitle";
+import HelmetTitle from "../../Components/HelmetTitle/HelmetTitle";
 const TeachOnSkillSync = () => {
   const {
     register,

@@ -8,6 +8,8 @@ import InstructorSignup from "../Page/Registraion/InstructorSignup";
 import StudentSignup from "../Page/Registraion/StudentSignup";
 import InstructorSignin from "../Page/Signin/InstructorSignin";
 import Signin from "../Page/Signin/Signin";
+import TeachOnSkillSync from "../Page/TeachOnSkillSync/TeachOnSkillSync";
+import PrivateRoute from "./PrivateRoute";
 
 const Router = createBrowserRouter([
   {
@@ -21,9 +23,17 @@ const Router = createBrowserRouter([
         path: "/course/:id",
         element: <CourseDetails />,
       },
-      { path: "/instructorSignup", element: <InstructorSignup /> },
+      {
+        path: "/teachonskillsync",
+        element: (
+          <PrivateRoute>
+            <TeachOnSkillSync />
+          </PrivateRoute>
+        ),
+      },
       { path: "/signup", element: <StudentSignup /> },
       { path: "/signin", element: <Signin /> },
+      { path: "/instructorSignup", element: <InstructorSignup /> },
       { path: "/instructorSignin", element: <InstructorSignin /> },
     ],
   },

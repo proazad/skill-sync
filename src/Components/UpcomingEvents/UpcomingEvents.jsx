@@ -14,7 +14,6 @@ import useAllEvents from "../../Hooks/useAllEvents";
 import SectionHead from "../SectionHead/SectionHead";
 const UpcomingEvents = () => {
   const [events] = useAllEvents();
-  console.log(events);
   return (
     <div className="px-10 my-16">
       <SectionHead
