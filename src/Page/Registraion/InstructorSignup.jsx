@@ -57,6 +57,23 @@ const InstructorSignup = () => {
             <div className="form-control max-w-md">
               <label>
                 <span className="label justify-start after:text-red-500 after:content-['*']">
+                  Profile Photo
+                </span>
+              </label>
+              <input
+                type="file"
+                {...register("photo", { required: true })}
+                className="file-input file-input-bordered input-primary w-full max-w-md"
+              />
+              {errors.photo && (
+                <span className="text-red-600 text-sm">
+                  Photo field is required
+                </span>
+              )}
+            </div>
+            <div className="form-control max-w-md">
+              <label>
+                <span className="label justify-start after:text-red-500 after:content-['*']">
                   Email
                 </span>
               </label>

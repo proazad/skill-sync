@@ -1,19 +1,60 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import HelmetTitle from "../../Components/HelmetTitle/HelmetTitle";
 import SocialSignIn from "../../Components/SocialSignIn/SocialSignIn";
+import useAuth from "../../Hooks/useAuth";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 const StudentSignup = () => {
   const [showpass, setShowPass] = useState(false);
   const [showpassc, setShowPassc] = useState(false);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  const onSubmit = (data) => console.log(data);
+  const { createUser, userProfileUpdate, userLogOut } = useAuth();
+  const axiosPublic = useAxiosPublic();
+  const onSubmit = async (data) => {
+    createUser(data.email, data.password)
+      .then(() => {
+        userProfileUpdate(data.name, data.photo).then(() => {
+          const userinfo = {
+            name: data.name,
+            email: data.email,
+            photo: data.photo,
+          };
+          axiosPublic.post("/students", userinfo).then((res) => {
+            if (res.data.insertedId) {
+              userLogOut().then(() => {
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "User Created Successfully",
+                  text: "Please Sign in with your credentials",
+                  showConfirmButton: false,
+                  timer: 2500,
+                });
+                navigate("/signin");
+              });
+            }
+          });
+        });
+      })
+      .catch((error) => {
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: "User Already Exists",
+          text: error.message,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
+  };
   return (
     <section className="container mx-auto my-16">
       <HelmetTitle title={"SIGN UP"} />
@@ -48,12 +89,31 @@ const StudentSignup = () => {
                 className="input input-bordered input-primary "
                 placeholder="Name"
               />
-              {errors.namme && (
+              {errors.name && (
                 <span className="text-red-600 text-sm">
                   Name field is required
                 </span>
               )}
             </div>
+            <div className="form-control max-w-md">
+              <label>
+                <span className="label justify-start after:text-red-500 after:content-['*']">
+                  Profile Photo
+                </span>
+              </label>
+              <input
+                type="url"
+                {...register("photo", { required: true })}
+                className="input input-bordered  input-primary w-full max-w-md"
+                placeholder="https://example.com/xyz.jpg"
+              />
+              {errors.photo && (
+                <span className="text-red-600 text-sm">
+                  Photo field is required
+                </span>
+              )}
+            </div>
+
             <div className="form-control max-w-md">
               <label>
                 <span className="label justify-start after:text-red-500 after:content-['*']">
@@ -132,8 +192,8 @@ const StudentSignup = () => {
             <div className="form-control my-5">
               <input
                 type="submit"
-                className="btn btn-primary max-w-md"
-                value="Sigup"
+                className="btn btn-primary max-w-md uppercase"
+                value="Student Signup"
               />
             </div>
             <p>

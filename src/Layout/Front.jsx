@@ -1,8 +1,17 @@
 import { Outlet } from "react-router-dom/dist";
 import NavItems from "../Components/NavItems/NavItems";
 import Navbar from "../Components/Navbar/Navbar";
+import useAuth from "../Hooks/useAuth";
 
 const Front = () => {
+  const { loading } = useAuth();
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen w-screen">
+        <progress className="progress progress-success w-56 h-5"></progress>
+      </div>
+    );
+  }
   return (
     <div className="drawer">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
