@@ -21,7 +21,7 @@ const StatisticsSection = () => {
         titlep2={"SkillSync Success"}
       />
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
-        <div className="border shadow-lg rounded-md p-10 flex justify-center items-center flex-col select-none">
+        <div className="border shadow-lg rounded-md p-10 flex justify-center items-center flex-col select-none hover:bg-green-600/50 transition duration-300">
           <h6 className="text-7xl font-medium">
             <FaUserGraduate />
           </h6>
@@ -30,7 +30,7 @@ const StatisticsSection = () => {
           </h2>
           <h2 className="text-base font-semibold text-neutral/90">Students</h2>
         </div>
-        <div className="border shadow-lg rounded-md p-10 flex justify-center items-center flex-col select-none">
+        <div className="border shadow-lg rounded-md p-10 flex justify-center items-center flex-col select-none hover:bg-green-600/50 transition duration-300">
           <h6 className="text-7xl font-medium">
             <FaBookOpenReader />
           </h6>
@@ -39,7 +39,7 @@ const StatisticsSection = () => {
           </h2>
           <h2 className="text-base font-semibold text-neutral/90">Courses</h2>
         </div>
-        <div className="border shadow-lg rounded-md p-10 flex justify-center items-center flex-col select-none">
+        <div className="border shadow-lg rounded-md p-10 flex justify-center items-center flex-col select-none hover:bg-green-600/50 transition duration-300">
           <h6 className="text-7xl font-medium">
             <MdBookmarkAdded />
           </h6>

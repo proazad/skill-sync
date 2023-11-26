@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import HelmetTitle from "../../Components/HelmetTitle/HelmetTitle";
+import HelmetTitle from "../../../Components/HelmetTitle/HelmetTitle";
 
 const Signup = () => {
   return (

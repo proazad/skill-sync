@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { FaBookOpenReader } from "react-icons/fa6";
+import { FaBookOpenReader, FaRegStar, FaStar } from "react-icons/fa6";
 import { MdBookmarkAdded } from "react-icons/md";
-const FeaturedCard = ({ course }) => {
+import Rating from "react-rating";
+const CourseCard = ({ course }) => {
   const {
     _id,
     title,
@@ -14,11 +15,12 @@ const FeaturedCard = ({ course }) => {
     mentor,
     description,
     mentorId,
+    ratings,
   } = course;
   return (
     <div className="h-full flex flex-col border rounded-md shadow hover:shadow-xl">
       <div className="relative">
-        <span className="bg-green-600 text-white hover:text-black px-2 py-1 text-xs transition duration-300 delay-300 border-green-600 border absolute w-12 h-12 rounded-badge flex items-center justify-center p-3 top-3 left-3 select-none">
+        <span className="bg-green-600 hover:bg-rose-600 text-white px-2 py-1 text-xs transition duration-200 delay-100 border absolute w-12 h-12 rounded-badge flex items-center justify-center p-3 top-3 left-3 select-none">
           <b> ${price}</b>
         </span>
         <img
@@ -38,10 +40,20 @@ const FeaturedCard = ({ course }) => {
             <MdBookmarkAdded /> {enrolled}+ Enrolled
           </span>
         </div>
-        <div className="flex-grow">
-          <h2 className="text-base text-neutral font-semibold hover:text-green-600 transition duration-300 my-3 delay-500">
+        <div className="flex-grow my-3">
+          <h2 className="text-base text-neutral font-semibold hover:text-green-600 transition duration-300 delay-500">
             {title}
           </h2>
+          <span className="flex items-center gap-2">
+            <Rating
+              initialRating={ratings}
+              readonly
+              emptySymbol={<FaRegStar />}
+              fullSymbol={<FaStar />}
+              className="text-amber-600 text-sm"
+            />
+            {ratings}
+          </span>
           <p className="text-xs">{description}</p>
         </div>
         <Link
@@ -63,7 +75,7 @@ const FeaturedCard = ({ course }) => {
     </div>
   );
 };
-FeaturedCard.propTypes = {
+CourseCard.propTypes = {
   course: PropTypes.object,
 };
-export default FeaturedCard;
+export default CourseCard;

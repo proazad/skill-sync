@@ -38,13 +38,13 @@ const UpcomingEvents = () => {
         {events?.map((event) => (
           <SwiperSlide
             key={event._id}
-            className="rounded-md border border-green-600"
+            className="border border-green-600 shadow select-none group"
           >
-            <div className="relative">
+            <div className="relative overflow-hidden">
               <img
                 src={event.image}
                 alt=""
-                className="rounded-t-md"
+                className="transition duration-300 group-hover:scale-125 delay-300"
                 draggable="false"
               />
             </div>
