@@ -9,7 +9,7 @@ import useAuth from "../../Hooks/useAuth";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 const StudentSignup = () => {
   const [showpass, setShowPass] = useState(false);
-  const [showpassc, setShowPassc] = useState(false);
+  // const [showpassc, setShowPassc] = useState(false);
   const navigate = useNavigate();
   const {
     register,
@@ -122,7 +122,9 @@ const StudentSignup = () => {
               </label>
               <input
                 type="email"
-                {...register("email", { required: true })}
+                {...register("email", {
+                  required: true,
+                })}
                 className="input input-bordered input-primary "
                 placeholder="Email"
               />
@@ -140,7 +142,12 @@ const StudentSignup = () => {
               </label>
               <input
                 type={showpass ? "text" : "password"}
-                {...register("password", { required: true })}
+                {...register("password", {
+                  required: true,
+                  minLength: 6,
+                  maxLength: 20,
+                  pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                })}
                 className="input input-bordered input-primary "
                 placeholder="Password"
               />
@@ -154,13 +161,31 @@ const StudentSignup = () => {
                   <FaRegEyeSlash className="text-2xl text-white" />
                 )}
               </p>
-              {errors.password && (
-                <span className="text-red-600 text-sm">
-                  Password field is required
+              {errors.password?.type ===
+                "required" &&(
+                  <span className="text-red-600 text-sm">
+                    Password field is required
+                  </span>
+                )}
+
+              {errors.password?.type === "minLength" && (
+                <span className="text-red-600">
+                  Password must be 6 characters
+                </span>
+              )}
+              {errors.password?.type === "maxLength" && (
+                <span className="text-red-600">
+                  Password must be less than 20 characters
+                </span>
+              )}
+              {errors.password?.type === "pattern" && (
+                <span className="text-red-600">
+                  Password must have one Uppercase one lower case, one number
+                  and one special character.
                 </span>
               )}
             </div>
-            <div className="form-control max-w-md relative">
+            {/* <div className="form-control max-w-md relative">
               <label>
                 <span className="label justify-start after:text-red-500 after:content-['*']">
                   Confirm Password
@@ -187,7 +212,7 @@ const StudentSignup = () => {
                   Password field is required
                 </span>
               )}
-            </div>
+            </div> */}
 
             <div className="form-control my-5">
               <input

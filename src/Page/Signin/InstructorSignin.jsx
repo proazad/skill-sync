@@ -3,16 +3,45 @@ import HelmetTitle from "../../Components/HelmetTitle/HelmetTitle";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { useState } from "react";
 import SocialSignIn from "../../Components/SocialSignIn/SocialSignIn";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAuth from "../../Hooks/useAuth";
 const InstructorSignin = () => {
   const [showpass, setShowPass] = useState(false);
+  const { userSignIn, setLoading } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    userSignIn(data.email, data.password)
+      .then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Sign in Successfull",
+          showConfirmButton: false,
+          timer: 2500,
+        });
+        navigate(from);
+      })
+      .catch(() => {
+        setLoading(false);
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: "Invalid User name or Password",
+          text: "Please Sign in with your credentials",
+          showConfirmButton: false,
+          timer: 2500,
+        });
+      });
+  };
   return (
     <section className="container mx-auto my-16">
       <HelmetTitle title={"SIGN IN"} />

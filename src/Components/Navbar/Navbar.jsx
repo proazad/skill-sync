@@ -82,10 +82,7 @@ const Navbar = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img
-                  alt="Azad Hossain"
-                  src="https://i.ibb.co/LPY431r/azad.jpg"
-                />
+                <img src={user.photoURL} alt={user.displayName} />
               </div>
             </label>
             <ul
@@ -94,7 +91,7 @@ const Navbar = () => {
             >
               <li>
                 <a className="justify-between">
-                  Azad Hossain
+                  {user.displayName}
                   <span className="badge">New</span>
                 </a>
               </li>

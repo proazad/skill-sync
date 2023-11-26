@@ -1,14 +1,14 @@
-import { useForm } from "react-hook-form";
-import HelmetTitle from "../../Components/HelmetTitle/HelmetTitle";
-import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { useState } from "react";
-import SocialSignIn from "../../Components/SocialSignIn/SocialSignIn";
+import { useForm } from "react-hook-form";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import HelmetTitle from "../../Components/HelmetTitle/HelmetTitle";
+import SocialSignIn from "../../Components/SocialSignIn/SocialSignIn";
+import useAuth from "../../Hooks/useAuth";
 const Signin = () => {
   const [showpass, setShowPass] = useState(false);
-  const { userSignIn } = useAuth();
+  const { userSignIn, setLoading } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -25,13 +25,13 @@ const Signin = () => {
           position: "top-end",
           icon: "success",
           title: "Sign in Successfull",
-          text: "Please Sign in with your credentials",
           showConfirmButton: false,
           timer: 2500,
         });
         navigate(from);
       })
       .catch(() => {
+        setLoading(false);
         Swal.fire({
           position: "top-end",
           icon: "error",
