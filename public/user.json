@@ -673,22 +673,27 @@
   },
   {
     "name": "John Smith",
+    "email": "johnsmith@gmail.com",
     "expertise": "Web Development",
     "socialmedia": "@johnsmith",
     "image": "https://i.ibb.co/YN90ph8/team2.jpg",
     "courses": ["Introduction to Web Development", "Web Design Fundamentals"],
-    "students": 120
+    "students": 120,
+    "IswantInstructor": true
   },
   {
     "name": "Alice Johnson",
+    "email": "alicejohnson@gmail.com",
     "expertise": "Data Science",
     "socialmedia": "@alicejohnson",
     "image": "https://i.ibb.co/MpFPsny/team1.jpg",
     "courses": ["Data Science Fundamentals", "Machine Learning Basics"],
-    "students": 95
+    "students": 95,
+    "IswantInstructor": true
   },
   {
     "name": "David Wilson",
+    "email": "davidwilson@gmail.com",
     "expertise": "Mobile App Development",
     "socialmedia": "@davidwilson",
     "image": "https://i.ibb.co/CvX6H3F/pexels-boris-hamer-16645409.jpg",
@@ -696,42 +701,52 @@
       "Mobile App Development with React Native",
       "iOS App Development with Swift"
     ],
-    "students": 80
+    "students": 80,
+    "IswantInstructor": true
   },
   {
     "name": "Emily Brown",
+    "email": "emilybrown@gmail.com",
     "expertise": "Advanced JavaScript Concepts",
     "socialmedia": "@emilybrown",
     "image": "https://i.ibb.co/YN90ph8/team2.jpg",
     "courses": ["Advanced JavaScript Concepts", "Node.js Fundamentals"],
-    "students": 65
+    "students": 65,
+    "IswantInstructor": true
   },
   {
     "name": "Michael Jones",
+    "email": "michealjones@gmail.com",
     "expertise": "Machine Learning",
     "socialmedia": "@michaeljones",
     "image": "https://i.ibb.co/MpFPsny/team1.jpg",
     "courses": ["Machine Learning Fundamentals", "Deep Learning Principles"],
-    "students": 150
+    "students": 150,
+    "IswantInstructor": true
   },
   {
     "name": "Sophia Miller",
+    "email": "sophiamiller@gmail.com",
     "expertise": "Graphic Design",
     "socialmedia": "@sophiamiller",
     "image": "https://i.ibb.co/CvX6H3F/pexels-boris-hamer-16645409.jpg",
     "courses": ["Graphic Design Mastery", "Digital Illustration Techniques"],
-    "students": 110
+    "students": 110,
+    "IswantInstructor": true
   },
   {
     "name": "Daniel White",
+    "email": "danielwhite@gmail.com",
     "expertise": "Digital Marketing",
     "socialmedia": "@danielwhite",
     "image": "https://i.ibb.co/YN90ph8/team2.jpg",
     "courses": ["Digital Marketing Strategies", "Social Media Advertising"],
-    "students": 90
+    "students": 90,
+    "IswantInstructor": true
   },
   {
     "name": "Olivia Robinson",
+    "email": "oliviarobin@gmail.com",
     "expertise": "Blockchain Technology",
     "socialmedia": "@oliviarobinson",
     "image": "https://i.ibb.co/MpFPsny/team1.jpg",
@@ -739,22 +754,27 @@
       "Blockchain Technology Explained",
       "Smart Contracts Development"
     ],
-    "students": 75
+    "students": 75,
+    "IswantInstructor": true
   },
   {
     "name": "William Davis",
+    "email": "williamdavis@gmail.com",
     "expertise": "Python for Data Analysis",
     "socialmedia": "@williamdavis",
     "image": "https://i.ibb.co/CvX6H3F/pexels-boris-hamer-16645409.jpg",
     "courses": ["Python for Data Analysis", "Data Visualization with Python"],
-    "students": 120
+    "students": 120,
+    "IswantInstructor": true
   },
   {
     "name": "Sophie Turner",
+    "email": "turner@gmail.com",
     "expertise": "UX/UI Design",
     "socialmedia": "@sophieturner",
     "image": "https://i.ibb.co/YN90ph8/team2.jpg",
     "courses": ["UX/UI Design Principles", "Interactive Prototyping"],
-    "students": 85
+    "students": 85,
+    "IswantInstructor": true
   }
 ]

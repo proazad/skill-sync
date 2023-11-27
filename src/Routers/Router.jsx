@@ -17,6 +17,7 @@ import StudentDashboard from "../Page/StudentDashboard/StudentDashboard";
 import TeachOnSkillSync from "../Page/TeachOnSkillSync/TeachOnSkillSync";
 import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
+import TeacherRequest from "../Page/AdminDashboard/TeacherRequest/TeacherRequest";
 
 const Router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ const Router = createBrowserRouter([
       </AdminRoute>
     ),
     children: [
+      {
+        path: "/admin/instructorrequest",
+        element: <TeacherRequest />,
+      },
       {
         path: "/admin/student",
         element: <Students />,

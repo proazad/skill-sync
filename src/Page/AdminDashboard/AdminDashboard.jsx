@@ -41,6 +41,9 @@ const AdminDashboard = () => {
             </div>
           </div>
           <li>
+            <NavLink to={"/admin/instructorrequest"}>Teacher Request</NavLink>
+          </li>
+          <li>
             <NavLink to={"/admin/student"}>All Student</NavLink>
           </li>
           <li>
