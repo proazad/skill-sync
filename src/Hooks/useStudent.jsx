@@ -1,20 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "./useAxiosPublic";
 
-const useAllUsers = () => {
+const useStudent = (id) => {
   const axiosPublic = useAxiosPublic();
   const {
-    data: users = [],
+    data: student = [],
     isPending: loading,
     refetch,
   } = useQuery({
-    queryKey: ["users"],
+    queryKey: ["student"],
     queryFn: async () => {
-      const res = await axiosPublic.get("/users/role/student");
+      const res = await axiosPublic.get(`/users/role/student/${id}`);
       return res.data;
     },
   });
-  return [users, loading, refetch];
+  return [student, loading, refetch];
 };
 
-export default useAllUsers;
+export default useStudent;

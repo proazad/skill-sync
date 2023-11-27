@@ -25,7 +25,7 @@ const StudentSignup = () => {
           const userinfo = {
             name: data.name,
             email: data.email,
-            photo: data.photo,
+            image: data.photo,
           };
           axiosPublic.post("/students", userinfo).then((res) => {
             if (res.data.insertedId) {
