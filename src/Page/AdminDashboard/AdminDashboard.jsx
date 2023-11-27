@@ -43,14 +43,21 @@ const AdminDashboard = () => {
           <li>
             <NavLink to={"/admin/instructorrequest"}>Teacher Request</NavLink>
           </li>
-          <li>
-            <NavLink to={"/admin/student"}>All Student</NavLink>
-          </li>
+
           <li>
             <NavLink to={"/admin/instructor"}>All Instructor</NavLink>
           </li>
           <li>
+            <NavLink to={"/admin/student"}>All Student</NavLink>
+          </li>
+          <li>
             <NavLink to={"/admin/course"}>All Course</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/admin/courserequest"}>All Course Request</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/"}>Home</NavLink>
           </li>
         </ul>
       </div>

@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Front from "../Layout/Front";
 import AdminDashboard from "../Page/AdminDashboard/AdminDashboard";
 import Course from "../Page/AdminDashboard/Course/Course";
-import Instructors from "../Page/AdminDashboard/Instructors/Instructors";
 import StudentDetails from "../Page/AdminDashboard/Students/StudentDetails";
 import Students from "../Page/AdminDashboard/Students/Students";
 import AllClasses from "../Page/AllClasses/AllClasses";
@@ -18,6 +17,8 @@ import TeachOnSkillSync from "../Page/TeachOnSkillSync/TeachOnSkillSync";
 import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
 import TeacherRequest from "../Page/AdminDashboard/TeacherRequest/TeacherRequest";
+import Instructors from "../Page/AdminDashboard/Instructors/Instructors";
+import CourseRequest from "../Page/AdminDashboard/Course/CourseRequest";
 
 const Router = createBrowserRouter([
   {
@@ -84,6 +85,10 @@ const Router = createBrowserRouter([
       {
         path: "/admin/course",
         element: <Course />,
+      },
+      {
+        path: "/admin/courserequest",
+        element: <CourseRequest />,
       },
     ],
   },

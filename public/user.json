@@ -679,6 +679,7 @@
     "image": "https://i.ibb.co/YN90ph8/team2.jpg",
     "courses": ["Introduction to Web Development", "Web Design Fundamentals"],
     "students": 120,
+    "label": "Expart",
     "IswantInstructor": true
   },
   {
@@ -689,6 +690,7 @@
     "image": "https://i.ibb.co/MpFPsny/team1.jpg",
     "courses": ["Data Science Fundamentals", "Machine Learning Basics"],
     "students": 95,
+    "label": "Expart",
     "IswantInstructor": true
   },
   {
@@ -701,6 +703,7 @@
       "Mobile App Development with React Native",
       "iOS App Development with Swift"
     ],
+    "label": "Expart",
     "students": 80,
     "IswantInstructor": true
   },
@@ -712,6 +715,7 @@
     "image": "https://i.ibb.co/YN90ph8/team2.jpg",
     "courses": ["Advanced JavaScript Concepts", "Node.js Fundamentals"],
     "students": 65,
+    "label": "Beginner",
     "IswantInstructor": true
   },
   {
@@ -722,6 +726,7 @@
     "image": "https://i.ibb.co/MpFPsny/team1.jpg",
     "courses": ["Machine Learning Fundamentals", "Deep Learning Principles"],
     "students": 150,
+    "label": "Middle Label",
     "IswantInstructor": true
   },
   {
@@ -732,6 +737,7 @@
     "image": "https://i.ibb.co/CvX6H3F/pexels-boris-hamer-16645409.jpg",
     "courses": ["Graphic Design Mastery", "Digital Illustration Techniques"],
     "students": 110,
+    "label": "Expart",
     "IswantInstructor": true
   },
   {
@@ -742,6 +748,7 @@
     "image": "https://i.ibb.co/YN90ph8/team2.jpg",
     "courses": ["Digital Marketing Strategies", "Social Media Advertising"],
     "students": 90,
+    "label": "Expart",
     "IswantInstructor": true
   },
   {
@@ -755,6 +762,7 @@
       "Smart Contracts Development"
     ],
     "students": 75,
+    "label": "Expart",
     "IswantInstructor": true
   },
   {
@@ -765,6 +773,7 @@
     "image": "https://i.ibb.co/CvX6H3F/pexels-boris-hamer-16645409.jpg",
     "courses": ["Python for Data Analysis", "Data Visualization with Python"],
     "students": 120,
+    "label": "Expart",
     "IswantInstructor": true
   },
   {
@@ -775,6 +784,7 @@
     "image": "https://i.ibb.co/YN90ph8/team2.jpg",
     "courses": ["UX/UI Design Principles", "Interactive Prototyping"],
     "students": 85,
+    "label": "Expart",
     "IswantInstructor": true
   }
 ]
