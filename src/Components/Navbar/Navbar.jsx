@@ -70,6 +70,9 @@ const Navbar = () => {
                 {whoareyou?.role === "student" && (
                   <Link to="dashboard/student">Dashboard</Link>
                 )}
+                {whoareyou?.role === "instructor" && (
+                  <Link to="/instructor">Dashboard</Link>
+                )}
               </li>
               <li>
                 <p onClick={handleLogOut}>Logout</p>

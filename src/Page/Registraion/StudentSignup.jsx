@@ -26,8 +26,9 @@ const StudentSignup = () => {
             name: data.name,
             email: data.email,
             image: data.photo,
+            role: "student",
           };
-          axiosPublic.post("/students", userinfo).then((res) => {
+          axiosPublic.post("/users", userinfo).then((res) => {
             if (res.data.insertedId) {
               userLogOut().then(() => {
                 Swal.fire({
@@ -75,7 +76,7 @@ const StudentSignup = () => {
               Instructor Sign UP
             </Link>
           </div>
-          <h2 className="text-4xl my-5">Please Sign Up (Student)</h2>
+          <h2 className="text-4xl my-5">Please Sign Up</h2>
           <form onSubmit={handleSubmit(onSubmit)} className="">
             <div className="form-control max-w-md">
               <label>
@@ -161,12 +162,11 @@ const StudentSignup = () => {
                   <FaRegEyeSlash className="text-2xl text-white" />
                 )}
               </p>
-              {errors.password?.type ===
-                "required" &&(
-                  <span className="text-red-600 text-sm">
-                    Password field is required
-                  </span>
-                )}
+              {errors.password?.type === "required" && (
+                <span className="text-red-600 text-sm">
+                  Password field is required
+                </span>
+              )}
 
               {errors.password?.type === "minLength" && (
                 <span className="text-red-600">

@@ -19,6 +19,10 @@ import PrivateRoute from "./PrivateRoute";
 import TeacherRequest from "../Page/AdminDashboard/TeacherRequest/TeacherRequest";
 import Instructors from "../Page/AdminDashboard/Instructors/Instructors";
 import CourseRequest from "../Page/AdminDashboard/Course/CourseRequest";
+import MentorDashboard from "../Page/MentorDashboard/MentorDashboard";
+import MentorHome from "../Page/MentorDashboard/MentorHome";
+import InstructorAllCourse from "../Page/MentorDashboard/InstructorAllCourse";
+import AddNewCourse from "../Page/MentorDashboard/AddNewCourse";
 
 const Router = createBrowserRouter([
   {
@@ -90,6 +94,15 @@ const Router = createBrowserRouter([
         path: "/admin/courserequest",
         element: <CourseRequest />,
       },
+    ],
+  },
+  {
+    path: "/instructor",
+    element: <MentorDashboard />,
+    children: [
+      { path: "/instructor", element: <MentorHome /> },
+      { path: "/instructor/course", element: <InstructorAllCourse /> },
+      { path: "/instructor/newcourse", element: <AddNewCourse /> },
     ],
   },
 ]);

@@ -1,13 +1,49 @@
 import { useForm } from "react-hook-form";
 import HelmetTitle from "../../Components/HelmetTitle/HelmetTitle";
+import useAuth from "../../Hooks/useAuth";
+import useAxiosPrivate from "../../Hooks/useAxiosPrivate";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import useWhoAreYou from "../../Hooks/useWhoAreYou";
 const TeachOnSkillSync = () => {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  const { displayName, email } = user;
+  const [whoareyou] = useWhoAreYou();
+
+  const axiosPrivate = useAxiosPrivate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  if (whoareyou.role === "instructor") {
+    return navigate("/instructor");
+  }
+
+  const onSubmit = (data) => {
+    const mentor = {
+      label: data.experience,
+      expertise: data.category,
+      name: data.mentorName,
+      IswantInstructor: true,
+    };
+    axiosPrivate
+      .put(`/users/instructor/request/${email}`, mentor)
+      .then((res) => {
+        if (res.data.modifiedCount === 1) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Sign in Successfull",
+            showConfirmButton: false,
+            timer: 2500,
+          });
+          navigate("/instructore");
+        }
+      });
+  };
 
   return (
     <section className="container mx-auto my-16">
@@ -27,9 +63,9 @@ const TeachOnSkillSync = () => {
               </label>
               <input
                 type="text"
-                {...register("name", { required: true })}
+                {...register("mentorName", { required: true })}
                 className="input input-bordered input-primary "
-                placeholder="Full Name"
+                defaultValue={displayName}
               />
               {errors.name && (
                 <span className="text-red-600 text-sm">
@@ -65,7 +101,7 @@ const TeachOnSkillSync = () => {
                 type="email"
                 {...register("email", { required: true })}
                 className="input input-bordered input-primary "
-                placeholder="Email"
+                defaultValue={email}
               />
               {errors.email && (
                 <span className="text-red-600 text-sm">
@@ -85,7 +121,7 @@ const TeachOnSkillSync = () => {
               >
                 <option>Select Experience</option>
                 <option value="beginner">Beginner</option>
-                <option value="other">other</option>
+                <option value="other">Mid Level</option>
                 <option value="expart">Expart</option>
               </select>
               {errors.experience && (
