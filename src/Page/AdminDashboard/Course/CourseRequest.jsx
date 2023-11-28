@@ -5,8 +5,9 @@ import useCourseRequest from "../../../Hooks/useCourseRequest";
 const CourseRequest = () => {
   const [coursesreq, , refetch] = useCourseRequest();
   const axiosPrivate = useAxiosPrivate();
+
   const handleCourseApprove = (id) => {
-    axiosPrivate.put(`/courses/approve/${id}`).then((res) => {
+    axiosPrivate.put(`courses/approve/${id}`).then((res) => {
       if (res.data.modifiedCount > 0) {
         Swal.fire({
           position: "top-end",
@@ -51,33 +52,45 @@ const CourseRequest = () => {
             </tr>
           </thead>
           <tbody>
-            {coursesreq?.map(({ _id, title, price, image, mentor }, index) => (
-              <tr key={_id}>
-                <th>{index + 1}</th>
-                <td>
-                  <img src={image} className="w-14" alt={title} />
-                </td>
-                <td>{title}</td>
-                <td>${price}</td>
-                <td>{mentor}</td>
-                <td>
-                  <button
-                    onClick={() => handleCourseApprove(_id)}
-                    className="btn btn-success btn-sm"
-                  >
-                    Approve
-                  </button>
-                </td>
-                <td>
-                  <button
-                    onClick={() => handleCourseCencel(_id)}
-                    className="btn btn-error btn-sm"
-                  >
-                    Cencel
-                  </button>
-                </td>
-              </tr>
-            ))}
+            {coursesreq?.map(
+              ({ _id, title, price, image, mentor, isreject }, index) => (
+                <tr key={_id}>
+                  <th>{index + 1}</th>
+                  <td>
+                    <img src={image} className="w-14" alt={title} />
+                  </td>
+                  <td>{title}</td>
+                  <td>${price}</td>
+                  <td>{mentor}</td>
+                  <td>
+                    {isreject ? (
+                      <button className="btn btn-success btn-sm" disabled>
+                        Approve
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => handleCourseApprove(_id)}
+                        className="btn btn-success btn-sm"
+                      >
+                        Approve
+                      </button>
+                    )}
+                  </td>
+                  <td>
+                    {isreject ? (
+                      <button className="btn btn-error btn-sm" disabled>Cenceled</button>
+                    ) : (
+                      <button
+                        onClick={() => handleCourseCencel(_id)}
+                        className="btn btn-error btn-sm"
+                      >
+                        Cencel
+                      </button>
+                    )}
+                  </td>
+                </tr>
+              )
+            )}
           </tbody>
         </table>
       </div>
