@@ -13,7 +13,7 @@ const UpcomingEvents = () => {
         cssClass={"hidden lg:grid grid-cols-1 grid-cols-3"}
       />
       <div className="hidden sm:block">
-        <UpcomingSlider item={2} cssClass={"grid  grid-cols-1 grid-cols-3"} />
+        <UpcomingSlider item={2} cssClass={"grid lg:hidden  grid-cols-1 grid-cols-3"} />
       </div>
       <UpcomingSlider
         item={1}

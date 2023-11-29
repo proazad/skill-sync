@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
-import useSinglePost from "../../Hooks/useSinglePost";
+import useSingleCourse from "../../Hooks/useSingleCourse";
 
 const UpdateCourse = () => {
   const { id } = useParams();
-  const [data] = useSinglePost(id);
-  console.log(data);
+  const [course] = useSingleCourse(id);
+  console.log(course);
   return <div></div>;
 };
 

@@ -14,7 +14,7 @@ const Partners = () => {
         cssClass={"hidden lg:grid grid-cols-1 grid-cols-3"}
       />
       <div className="hidden sm:block">
-        <ParnterSlider item={2} cssClass={"grid grid-cols-1 grid-cols-3"} />
+        <ParnterSlider item={2} cssClass={"grid lg:hidden grid-cols-1 grid-cols-3"} />
       </div>
       <ParnterSlider
         item={1}

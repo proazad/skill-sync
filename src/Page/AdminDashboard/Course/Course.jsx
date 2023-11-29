@@ -36,10 +36,10 @@ const Course = () => {
                   <td>{mentor}</td>
                   <td>
                     <Link
-                      to={`/admin/student/${_id}`}
+                      to={`/admin/course/${_id}`}
                       className="btn btn-primary btn-sm"
                     >
-                      Detials
+                      See progress
                     </Link>
                   </td>
                 </tr>

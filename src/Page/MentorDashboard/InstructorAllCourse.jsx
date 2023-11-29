@@ -34,7 +34,7 @@ const InstructorAllCourse = () => {
                   <td>
                     {isApproved && !isreject && (
                       <span className="text-green-600 px-2 py-2 rounded-md font-semibold">
-                        Approved
+                        Accepted
                       </span>
                     )}
                     {isApproved === false && (

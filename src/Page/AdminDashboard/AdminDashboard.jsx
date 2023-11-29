@@ -1,11 +1,12 @@
+import { AiOutlineProfile } from "react-icons/ai";
+import { FaBook } from "react-icons/fa6";
+import { FcBusinessman } from "react-icons/fc";
+import { LuBookPlus } from "react-icons/lu";
+import { PiStudentBold } from "react-icons/pi";
 import { TiThMenuOutline } from "react-icons/ti";
 import { NavLink, Outlet } from "react-router-dom";
-import { PiStudentBold } from "react-icons/pi";
-import { LuBookPlus } from "react-icons/lu";
-import { FaBook } from "react-icons/fa6";
 import SiteLogo from "../../Components/siteTitle/SiteLogo";
 import useWhoAreYou from "../../Hooks/useWhoAreYou";
-import { FcBusinessman } from "react-icons/fc";
 const AdminDashboard = () => {
   const [whoareyou] = useWhoAreYou();
   return (
@@ -45,11 +46,23 @@ const AdminDashboard = () => {
             </div>
           </div>
           <li>
-            <NavLink to={"/admin/instructorrequest"}><FcBusinessman className="text-xl"/>Teacher Request</NavLink>
+            <NavLink to={"/admin/instructorrequest"}>
+              <FcBusinessman className="text-xl" />
+              Teacher Request
+            </NavLink>
           </li>
 
           <li>
-            <NavLink to={"/admin/instructor"}><FcBusinessman className="text-xl"/>All Instructor</NavLink>
+            <NavLink to={"/admin/users"}>
+              <FcBusinessman className="text-xl" />
+              All Users
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/admin/instructor"}>
+              <FcBusinessman className="text-xl" />
+              All Instructor
+            </NavLink>
           </li>
           <li>
             <NavLink to={"/admin/student"} className="flex items-center">
@@ -67,6 +80,12 @@ const AdminDashboard = () => {
             <NavLink to={"/admin/courserequest"}>
               <LuBookPlus className="text-xl" />
               All Course Request
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/admin/prifile"}>
+              <AiOutlineProfile className="text-xl" />
+              Profile
             </NavLink>
           </li>
           <div className=" divider"></div>

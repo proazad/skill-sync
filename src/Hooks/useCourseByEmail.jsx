@@ -4,19 +4,20 @@ import useAxiosPrivate from "./useAxiosPrivate";
 
 const useCourseByEmail = () => {
   const axiosPrivate = useAxiosPrivate();
-  const { user } = useAuth();
+  const { user,loading } = useAuth();
   const {
     data: mycourses = [],
-    isPending: loading,
+    isPending,
     refetch,
   } = useQuery({
-    queryKey: ["mycourses"],
+    queryKey: [user?.email,"mycourses"],
+    enabled: !loading && !!localStorage.getItem("access_token"),
     queryFn: async () => {
       const res = await axiosPrivate.get(`/courses/${user.email}`);
       return res.data;
     },
   });
-  return [mycourses, loading, refetch];
+  return [mycourses, isPending, refetch];
 };
 
 export default useCourseByEmail;

@@ -4,14 +4,13 @@ import useAxiosPrivate from "./useAxiosPrivate";
 
 const useAllUsers = () => {
   const axiosPrivate = useAxiosPrivate();
-  const { user, loading } = useAuth();
+  const { user } = useAuth();
   const {
     data: users = [],
     isPending,
     refetch,
   } = useQuery({
     queryKey: [user?.email, "users"],
-    enabled: !loading && !!localStorage.getItem("access_token"),
     queryFn: async () => {
       const res = await axiosPrivate.get("/users");
       return res.data;

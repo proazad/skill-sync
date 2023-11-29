@@ -1,31 +1,32 @@
 import { createBrowserRouter } from "react-router-dom";
 import Front from "../Layout/Front";
 import AdminDashboard from "../Page/AdminDashboard/AdminDashboard";
+import AdminProfile from "../Page/AdminDashboard/AdminProfile";
+import AllUsers from "../Page/AdminDashboard/AllUsers";
 import Course from "../Page/AdminDashboard/Course/Course";
+import CourseRequest from "../Page/AdminDashboard/Course/CourseRequest";
+import DetailsCourse from "../Page/AdminDashboard/Course/DetailsCourse";
+import Instructors from "../Page/AdminDashboard/Instructors/Instructors";
 import StudentDetails from "../Page/AdminDashboard/Students/StudentDetails";
 import Students from "../Page/AdminDashboard/Students/Students";
+import TeacherRequest from "../Page/AdminDashboard/TeacherRequest/TeacherRequest";
 import AllClasses from "../Page/AllClasses/AllClasses";
 import CourseDetails from "../Page/CourseDetails/CourseDetails";
 import Errorpage from "../Page/Errorpage/Errorpage";
 import Home from "../Page/Home/Home";
-import InstructorSignup from "../Page/Registraion/InstructorSignup";
-import StudentSignup from "../Page/Registraion/StudentSignup";
-import InstructorSignin from "../Page/Signin/InstructorSignin";
-import Signin from "../Page/Signin/Signin";
-import StudentDashboard from "../Page/StudentDashboard/StudentDashboard";
-import TeachOnSkillSync from "../Page/TeachOnSkillSync/TeachOnSkillSync";
-import AdminRoute from "./AdminRoute";
-import PrivateRoute from "./PrivateRoute";
-import TeacherRequest from "../Page/AdminDashboard/TeacherRequest/TeacherRequest";
-import Instructors from "../Page/AdminDashboard/Instructors/Instructors";
-import CourseRequest from "../Page/AdminDashboard/Course/CourseRequest";
+import AddNewCourse from "../Page/MentorDashboard/AddNewCourse";
+import InstructorAllCourse from "../Page/MentorDashboard/InstructorAllCourse";
 import MentorDashboard from "../Page/MentorDashboard/MentorDashboard";
 import MentorHome from "../Page/MentorDashboard/MentorHome";
-import InstructorAllCourse from "../Page/MentorDashboard/InstructorAllCourse";
-import AddNewCourse from "../Page/MentorDashboard/AddNewCourse";
 import UpdateCourse from "../Page/MentorDashboard/UpdateCourse";
-import InstructorRoute from "./InstructorRoute";
+import StudentSignup from "../Page/Registraion/StudentSignup";
+import Signin from "../Page/Signin/Signin";
+import StudentDashboard from "../Page/StudentDashboard/StudentDashboard";
 import StudentHome from "../Page/StudentDashboard/StudentHome";
+import TeachOnSkillSync from "../Page/TeachOnSkillSync/TeachOnSkillSync";
+import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
+import PrivateRoute from "./PrivateRoute";
 
 const Router = createBrowserRouter([
   {
@@ -86,6 +87,14 @@ const Router = createBrowserRouter([
         element: <Students />,
       },
       {
+        path: "/admin/prifile",
+        element: <AdminProfile />,
+      },
+      {
+        path: "/admin/users",
+        element: <AllUsers />,
+      },
+      {
         path: "/admin/student/:id",
         element: <StudentDetails />,
       },
@@ -96,6 +105,10 @@ const Router = createBrowserRouter([
       {
         path: "/admin/course",
         element: <Course />,
+      },
+      {
+        path: "/admin/course/:id",
+        element: <DetailsCourse />,
       },
       {
         path: "/admin/courserequest",

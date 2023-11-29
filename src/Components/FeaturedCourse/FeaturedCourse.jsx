@@ -11,7 +11,7 @@ const FeaturedCourse = () => {
       <FeatSlider item={3} cssClass={"hidden lg:grid grid-cols-1 grid-cols-3"} />
       <div className="hidden sm:block">
 
-      <FeatSlider item={2} cssClass={"grid grid-cols-1 grid-cols-3"} />
+      <FeatSlider item={2} cssClass={"grid lg:hidden grid-cols-1 grid-cols-3"} />
       </div>
       <FeatSlider item={1} cssClass={"grid sm:hidden grid-cols-1 grid-cols-3"} />
     </section>

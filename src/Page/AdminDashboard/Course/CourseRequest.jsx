@@ -80,15 +80,15 @@ const CourseRequest = () => {
                   </td>
                   <td>
                     {isreject ? (
-                      <button className="btn btn-error btn-sm" disabled>
-                        Cenceled
-                      </button>
+                      <span className="bg-error px-2 py-1 rounded-md font-semibold">
+                        Rejected
+                      </span>
                     ) : (
                       <button
                         onClick={() => handleCourseCencel(_id)}
                         className="btn btn-error btn-sm"
                       >
-                        Cencel
+                        Reject
                       </button>
                     )}
                   </td>
