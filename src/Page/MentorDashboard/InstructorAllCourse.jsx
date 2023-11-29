@@ -1,12 +1,8 @@
+import { Link } from "react-router-dom";
 import useCourseByEmail from "../../Hooks/useCourseByEmail";
 
 const InstructorAllCourse = () => {
   const [mycourses] = useCourseByEmail();
-  // const approve = mycourses?.filter((course) => course.isApproved === true);
-  // const pending = mycourses?.filter(
-  //   (course) => (course.isApproved === false) & !course.isreject
-  // );
-  // const reject = mycourses?.filter((course) => course.isreject === true);
   return (
     <div className="my-10">
       <h2 className="text-4xl">
@@ -53,7 +49,12 @@ const InstructorAllCourse = () => {
                     )}
                   </td>
                   <td>
-                    <button className="btn btn-error btn-sm">Edit</button>
+                    <Link
+                      to={`/instructor/course/${_id}`}
+                      className="btn btn-error btn-sm"
+                    >
+                      Edit
+                    </Link>
                   </td>
                   <td>
                     {isApproved ? (

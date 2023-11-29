@@ -3,9 +3,12 @@ import useAllCourse from "../../../Hooks/useAllCourse";
 
 const Course = () => {
   const [courses] = useAllCourse();
+  const approvedCourse = courses?.filter(
+    (course) => course.isApproved === true
+  );
   return (
     <div>
-      <h2 className="text-4xl">All Courses: {courses.length}</h2>
+      <h2 className="text-4xl">All Courses: {approvedCourse.length}</h2>
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           <thead>
@@ -20,7 +23,7 @@ const Course = () => {
             </tr>
           </thead>
           <tbody>
-            {courses?.map(
+            {approvedCourse?.map(
               ({ _id, title, price, enrolled, image, mentor }, index) => (
                 <tr key={_id}>
                   <th>{index + 1}</th>

@@ -4,14 +4,15 @@ import useAxiosPublic from "./useAxiosPublic";
 
 const useWhoAreYou = () => {
   const axiosPublic = useAxiosPublic();
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
 
   const {
     data: whoareyou,
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["whoareyou"],
+    queryKey: [user?.email, "whoareyou"],
+    enabled: !loading && !!localStorage.getItem("access_token"),
     queryFn: async () => {
       const res = await axiosPublic.get(`/users/${user.email}`);
       return res.data;

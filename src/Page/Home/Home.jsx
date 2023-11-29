@@ -1,6 +1,7 @@
 import Banner from "../../Components/Banner/Banner";
 import BecomeMentor from "../../Components/BecomeMentor/BecomeMentor";
 import FeaturedCourse from "../../Components/FeaturedCourse/FeaturedCourse";
+import Footer from "../../Components/Footer/Footer";
 import HelmetTitle from "../../Components/HelmetTitle/HelmetTitle";
 import OurInstructors from "../../Components/OurInstructors/OurInstructors";
 import Partners from "../../Components/Partners/Partners";
@@ -20,6 +21,7 @@ const Home = () => {
       <OurInstructors />
       <BecomeMentor />
       <UpcomingEvents />
+      <Footer />
     </>
   );
 };

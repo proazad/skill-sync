@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import useAllStudents from "../../../Hooks/useAllStudents";
+import useAllUsers from "../../../Hooks/useAllUsers";
 const Students = () => {
-  const [students] = useAllStudents();
-
+  const [users] = useAllUsers();
+const students = users?.filter((student)=>student.role ==='student');
   return (
     <div>
       <h2 className="text-4xl my-5">All Student :{students.length}</h2>

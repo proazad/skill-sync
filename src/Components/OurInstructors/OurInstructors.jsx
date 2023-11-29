@@ -7,19 +7,23 @@ import {
 import { GiWhiteBook } from "react-icons/gi";
 import { PiStudent } from "react-icons/pi";
 import { Link } from "react-router-dom";
+import useAllUsers from "../../Hooks/useAllUsers";
 import SectionHead from "../SectionHead/SectionHead";
-import useAllInstructor from "../../Hooks/useAllInstructor";
 const OurInstructors = () => {
-  const [instructors] = useAllInstructor();
+  const [users] = useAllUsers();
+  const instructors = users?.filter((student) => student.role === "instructor");
+  const bestTeacher = instructors?.sort(
+    (courseA, courseB) => courseB.students - courseA.students
+  );
   return (
-    <section className="px-10 my-16">
+    <section className="container mx-auto px-2 md:px-5 xl:px-0 my-10">
       <SectionHead
         subtitle={"Team Member"}
         titlep1={"Our Expert"}
         titlep2={"Instructors"}
       />
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 ">
-        {instructors?.slice(0, 3)?.map((instructor) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10 ">
+        {bestTeacher?.slice(0, 3)?.map((instructor) => (
           <div
             key={instructor?._id}
             className="p-2 border rounded-md select-none group"

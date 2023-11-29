@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import useAxiosPrivate from "../../Hooks/useAxiosPrivate";
 import useWhoAreYou from "../../Hooks/useWhoAreYou";
-import Swal from "sweetalert2";
 
 const AddNewCourse = () => {
   const [whoareyou] = useWhoAreYou();
@@ -26,6 +26,7 @@ const AddNewCourse = () => {
       mentor: whoareyou.name,
       email: data.email,
       isApproved: false,
+      enrolled: 0,
     };
     axiosPrivate.post("/courses", course).then((res) => {
       if (res.data.insertedId) {

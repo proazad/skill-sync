@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
-import useAllInstructor from "../../../Hooks/useAllInstructor";
+import useAllUsers from "../../../Hooks/useAllUsers";
 
 const Instructors = () => {
-  const [instructors] = useAllInstructor();
+  const [users] = useAllUsers();
+  const instructors = users?.filter(
+    (instructor) => instructor.role === "instructor"
+  );
   return (
     <div>
       <h2 className="text-4xl">All Instructors {instructors.length}</h2>
@@ -21,27 +24,32 @@ const Instructors = () => {
             </tr>
           </thead>
           <tbody>
-            {instructors?.map(({ _id, name, image, email,courses,expertise,students }, index) => (
-              <tr key={_id}>
-                <th>{index + 1}</th>
-                <td>
-                  <img src={image} className="w-14" alt={name} />
-                </td>
-                <td>{name}</td>
-                <td>{email}</td>
-                <td>{expertise}</td>
-                <td>{courses}</td>
-                <td>{students}</td>
-                <td>
-                  <Link
-                    to={`/admin/instructor/${_id}`}
-                    className="btn btn-primary btn-sm"
-                  >
-                    Detials
-                  </Link>
-                </td>
-              </tr>
-            ))}
+            {instructors?.map(
+              (
+                { _id, name, image, email, courses, expertise, students },
+                index
+              ) => (
+                <tr key={_id}>
+                  <th>{index + 1}</th>
+                  <td>
+                    <img src={image} className="w-14" alt={name} />
+                  </td>
+                  <td>{name}</td>
+                  <td>{email}</td>
+                  <td>{expertise}</td>
+                  <td>{courses}</td>
+                  <td>{students}</td>
+                  <td>
+                    <Link
+                      to={`/admin/instructor/${_id}`}
+                      className="btn btn-primary btn-sm"
+                    >
+                      Detials
+                    </Link>
+                  </td>
+                </tr>
+              )
+            )}
           </tbody>
         </table>
       </div>

@@ -6,11 +6,11 @@ import CommonBtn from "../CommonBtn/CommonBtn";
 const Banner = () => {
   return (
     <section
-      className="flex items-center gap-3 lg:gap-8 bg-cover  bg-no-repeat bg-left-top py-5 sm:py-10 lg:py-24 px-5 sm:px-10 lg:px-20 "
+      className="flex items-center gap-0 sm:gap-3 lg:gap-8 bg-cover  bg-no-repeat bg-left-top py-5 sm:py-10 lg:py-24 px-3 sm:px-10 lg:px-20 "
       style={{ backgroundImage: `url('${bg}')` }}
     >
       <div className="flex-1">
-        <h1 className="sm:text-4xl  lg:text-7xl xl:text-8xl text-neutral font-bold">
+        <h1 className="text-base sm:text-4xl  lg:text-7xl xl:text-8xl text-neutral font-medium sm:font-bold">
           Better <br /> <span className="text-green-600">Learning Future</span>
           Starts With SkillSync
         </h1>

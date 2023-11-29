@@ -1,9 +1,12 @@
 import Swal from "sweetalert2";
 import useAxiosPrivate from "../../../Hooks/useAxiosPrivate";
-import useTeacherRequest from "../../../Hooks/useTeacherRequest";
+import useAllUsers from "../../../Hooks/useAllUsers";
 
 const TeacherRequest = () => {
-  const [teacherRequest, , refetch] = useTeacherRequest();
+  const [users, , refetch] = useAllUsers();
+  const instructors = users?.filter(
+    (instructor) => instructor.IswantInstructor === true
+  );
   const axiosPrivate = useAxiosPrivate();
   const handleMakeAdmin = (id) => {
     axiosPrivate.put(`/users/instructor/${id}`).then((res) => {
@@ -36,7 +39,7 @@ const TeacherRequest = () => {
   return (
     <div>
       <h2 className="text-4xl">
-        All Teacher Request : {teacherRequest.length}
+        All Teacher Request : {instructors.length}
       </h2>
       <div className="overflow-x-auto">
         <table className="table table-zebra">
@@ -51,7 +54,7 @@ const TeacherRequest = () => {
             </tr>
           </thead>
           <tbody>
-            {teacherRequest?.map(
+            {instructors?.map(
               ({ _id, name, image, email, requestReject }, index) => (
                 <tr key={_id}>
                   <th>{index + 1}</th>

@@ -1,11 +1,13 @@
 import Swal from "sweetalert2";
+import useAllCourse from "../../../Hooks/useAllCourse";
 import useAxiosPrivate from "../../../Hooks/useAxiosPrivate";
-import useCourseRequest from "../../../Hooks/useCourseRequest";
 
 const CourseRequest = () => {
-  const [coursesreq, , refetch] = useCourseRequest();
   const axiosPrivate = useAxiosPrivate();
-
+  const [courses, , refetch] = useAllCourse();
+  const pendingCourse = courses?.filter(
+    (course) => course.isApproved === false
+  );
   const handleCourseApprove = (id) => {
     axiosPrivate.put(`courses/approve/${id}`).then((res) => {
       if (res.data.modifiedCount > 0) {
@@ -37,7 +39,7 @@ const CourseRequest = () => {
   };
   return (
     <div>
-      <h2 className="text-4xl">All Course Request: {coursesreq.length}</h2>
+      <h2 className="text-4xl">All Course Request: {pendingCourse.length}</h2>
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           <thead>
@@ -52,7 +54,7 @@ const CourseRequest = () => {
             </tr>
           </thead>
           <tbody>
-            {coursesreq?.map(
+            {pendingCourse?.map(
               ({ _id, title, price, image, mentor, isreject }, index) => (
                 <tr key={_id}>
                   <th>{index + 1}</th>
@@ -78,7 +80,9 @@ const CourseRequest = () => {
                   </td>
                   <td>
                     {isreject ? (
-                      <button className="btn btn-error btn-sm" disabled>Cenceled</button>
+                      <button className="btn btn-error btn-sm" disabled>
+                        Cenceled
+                      </button>
                     ) : (
                       <button
                         onClick={() => handleCourseCencel(_id)}

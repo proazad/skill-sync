@@ -14,7 +14,7 @@ import FeedbackCard from "../FeedbackCard/FeedbackCard";
 const ReviewSection = () => {
   const [reviews] = useFeedback();
   return (
-    <div className="px-10 my-16">
+    <div className="container mx-auto px-2 md:px-5 xl:px-0 my-10">
       <SectionHead
         subtitle={"TESTIMONIAL"}
         titlep1={"What Says"}

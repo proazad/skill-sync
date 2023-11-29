@@ -1,7 +1,11 @@
 import { TiThMenuOutline } from "react-icons/ti";
 import { NavLink, Outlet } from "react-router-dom";
+import { PiStudentBold } from "react-icons/pi";
+import { LuBookPlus } from "react-icons/lu";
+import { FaBook } from "react-icons/fa6";
 import SiteLogo from "../../Components/siteTitle/SiteLogo";
 import useWhoAreYou from "../../Hooks/useWhoAreYou";
+import { FcBusinessman } from "react-icons/fc";
 const AdminDashboard = () => {
   const [whoareyou] = useWhoAreYou();
   return (
@@ -41,21 +45,31 @@ const AdminDashboard = () => {
             </div>
           </div>
           <li>
-            <NavLink to={"/admin/instructorrequest"}>Teacher Request</NavLink>
+            <NavLink to={"/admin/instructorrequest"}><FcBusinessman className="text-xl"/>Teacher Request</NavLink>
           </li>
 
           <li>
-            <NavLink to={"/admin/instructor"}>All Instructor</NavLink>
+            <NavLink to={"/admin/instructor"}><FcBusinessman className="text-xl"/>All Instructor</NavLink>
           </li>
           <li>
-            <NavLink to={"/admin/student"}>All Student</NavLink>
+            <NavLink to={"/admin/student"} className="flex items-center">
+              <PiStudentBold className="text-xl" />
+              All Student
+            </NavLink>
           </li>
           <li>
-            <NavLink to={"/admin/course"}>All Course</NavLink>
+            <NavLink to={"/admin/course"}>
+              <FaBook className="text-xl" />
+              All Course
+            </NavLink>
           </li>
           <li>
-            <NavLink to={"/admin/courserequest"}>All Course Request</NavLink>
+            <NavLink to={"/admin/courserequest"}>
+              <LuBookPlus className="text-xl" />
+              All Course Request
+            </NavLink>
           </li>
+          <div className=" divider"></div>
           <li>
             <NavLink to={"/"}>Home</NavLink>
           </li>

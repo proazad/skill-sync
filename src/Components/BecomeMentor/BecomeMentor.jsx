@@ -4,14 +4,14 @@ import SectionHead from "../SectionHead/SectionHead";
 
 const BecomeMentor = () => {
   return (
-    <section className="px-10 my-16">
+    <section className="container mx-auto px-2 md:px-5 xl:px-0 my-10">
       <SectionHead
         subtitle={"Instructor"}
         titlep1={"Become a"}
         titlep2={"Mentors"}
       />
-      <div className="flex gap-10 items-center">
-        <div className="px-16 w-[400px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div className="px-16">
           <img
             src="https://i.ibb.co/mTnLMxW/mentor.png"
             alt=""
@@ -19,7 +19,7 @@ const BecomeMentor = () => {
             draggable="false"
           />
         </div>
-        <div className="flex-1">
+        <div className="">
           <h2 className="text-4xl font-bold text-green-600 mb-3">
             Become an Instructor
           </h2>

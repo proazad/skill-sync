@@ -1,48 +1,19 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import useAllCourse from "../../Hooks/useAllCourse";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-// import './styles.css';
-
-// import required modules
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import FeaturedCard from "../FeaturedCard/FeaturedCard";
 import SectionHead from "../SectionHead/SectionHead";
+import FeatSlider from "./FeatSlider";
 const FeaturedCourse = () => {
-  const [courses] = useAllCourse();
-  const featured = courses
-    .sort((courseA, courseB) => courseB.enrolled - courseA.enrolled)
-    .slice(0, 6);
-
   return (
-    <section className="px-10 my-16">
+    <section className="container mx-auto px-2 md:px-5 xl:px-0">
       <SectionHead
         subtitle={"POPULAR COURSES"}
         titlep1={"Choose Our"}
         titlep2={"Top Courses"}
       />
-      <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper grid grid-cols-1 lg:grid-cols-3 gap-5"
-      >
-        {featured?.map((course) => (
-          <SwiperSlide key={course._id}>
-            <FeaturedCard course={course} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <FeatSlider item={3} cssClass={"hidden lg:grid grid-cols-1 grid-cols-3"} />
+      <div className="hidden sm:block">
+
+      <FeatSlider item={2} cssClass={"grid grid-cols-1 grid-cols-3"} />
+      </div>
+      <FeatSlider item={1} cssClass={"grid sm:hidden grid-cols-1 grid-cols-3"} />
     </section>
   );
 };

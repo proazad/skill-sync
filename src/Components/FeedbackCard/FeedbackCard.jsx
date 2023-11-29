@@ -4,7 +4,7 @@ import Rating from "react-rating";
 const FeedbackCard = ({ reviews }) => {
   const { ratings, image, name, feedback, coursetitle } = reviews;
   return (
-    <div className="h-full w-7/12 mx-auto select-none p-5 rounded-md text-center">
+    <div className="h-full w-full lg:w-7/12 mx-auto select-none p-5 rounded-md text-center">
       <Rating
         initialRating={ratings}
         readonly

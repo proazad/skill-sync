@@ -5,7 +5,7 @@ const useAllCourse = () => {
   const axiosPublic = useAxiosPublic();
   const {
     data: courses = [],
-    isPending: loading,
+    isPending,
     refetch,
   } = useQuery({
     queryKey: ["courses"],
@@ -14,7 +14,7 @@ const useAllCourse = () => {
       return res.data;
     },
   });
-  return [courses, loading, refetch];
+  return [courses, isPending, refetch];
 };
 
 export default useAllCourse;

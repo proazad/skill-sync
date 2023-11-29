@@ -23,6 +23,9 @@ import MentorDashboard from "../Page/MentorDashboard/MentorDashboard";
 import MentorHome from "../Page/MentorDashboard/MentorHome";
 import InstructorAllCourse from "../Page/MentorDashboard/InstructorAllCourse";
 import AddNewCourse from "../Page/MentorDashboard/AddNewCourse";
+import UpdateCourse from "../Page/MentorDashboard/UpdateCourse";
+import InstructorRoute from "./InstructorRoute";
+import StudentHome from "../Page/StudentDashboard/StudentHome";
 
 const Router = createBrowserRouter([
   {
@@ -47,6 +50,12 @@ const Router = createBrowserRouter([
             <StudentDashboard />
           </PrivateRoute>
         ),
+        children: [
+          {
+            path: "/dashboard/student",
+            element: <StudentHome />,
+          },
+        ],
       },
       {
         path: "/teachonskillsync",
@@ -58,8 +67,6 @@ const Router = createBrowserRouter([
       },
       { path: "/signup", element: <StudentSignup /> },
       { path: "/signin", element: <Signin /> },
-      { path: "/instructorSignup", element: <InstructorSignup /> },
-      { path: "/instructorSignin", element: <InstructorSignin /> },
     ],
   },
   {
@@ -98,11 +105,16 @@ const Router = createBrowserRouter([
   },
   {
     path: "/instructor",
-    element: <MentorDashboard />,
+    element: (
+      <InstructorRoute>
+        <MentorDashboard />
+      </InstructorRoute>
+    ),
     children: [
       { path: "/instructor", element: <MentorHome /> },
       { path: "/instructor/course", element: <InstructorAllCourse /> },
       { path: "/instructor/newcourse", element: <AddNewCourse /> },
+      { path: "/instructor/course/:id", element: <UpdateCourse /> },
     ],
   },
 ]);
