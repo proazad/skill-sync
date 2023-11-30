@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
-import useAxiosPrivate from "../../../Hooks/useAxiosPrivate";
 import useAllUsers from "../../../Hooks/useAllUsers";
+import useAxiosPrivate from "../../../Hooks/useAxiosPrivate";
 
 const TeacherRequest = () => {
   const [users, , refetch] = useAllUsers();
@@ -66,14 +66,14 @@ const TeacherRequest = () => {
                   <td>
                     {requestReject ? (
                       <button className="btn btn-primary btn-sm" disabled>
-                        Make an Admin
+                        Make an Teacher
                       </button>
                     ) : (
                       <button
                         onClick={() => handleMakeAdmin(_id)}
                         className="btn btn-primary btn-sm"
                       >
-                        Make an Admin
+                        Make an Teacher
                       </button>
                     )}
                   </td>

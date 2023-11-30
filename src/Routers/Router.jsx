@@ -18,6 +18,7 @@ import AddNewCourse from "../Page/MentorDashboard/AddNewCourse";
 import InstructorAllCourse from "../Page/MentorDashboard/InstructorAllCourse";
 import MentorDashboard from "../Page/MentorDashboard/MentorDashboard";
 import MentorHome from "../Page/MentorDashboard/MentorHome";
+import MentorProfile from "../Page/MentorDashboard/MentorProfile";
 import UpdateCourse from "../Page/MentorDashboard/UpdateCourse";
 import Payment from "../Page/Payment/Payment";
 import StudentSignup from "../Page/Registraion/StudentSignup";
@@ -130,6 +131,7 @@ const Router = createBrowserRouter([
     ),
     children: [
       { path: "/instructor", element: <MentorHome /> },
+      { path: "/instructor/home", element: <MentorProfile /> },
       { path: "/instructor/course", element: <InstructorAllCourse /> },
       { path: "/instructor/newcourse", element: <AddNewCourse /> },
       { path: "/instructor/course/:id", element: <UpdateCourse /> },

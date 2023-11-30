@@ -4,6 +4,7 @@ import useAuth from "./useAuth";
 
 const axiosPrivate = axios.create({
   baseURL: "http://localhost:5000",
+  // baseURL: "https://skillsync-server.vercel.app",
 });
 const useAxiosPrivate = () => {
   const navigate = useNavigate();

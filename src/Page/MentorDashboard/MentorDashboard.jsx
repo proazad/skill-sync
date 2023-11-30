@@ -54,6 +54,9 @@ const MentorDashboard = () => {
           <li className="">
             <NavLink to={"/instructor/newcourse"}>Add New Course</NavLink>
           </li>
+          <li className="">
+            <NavLink to={"/instructor/home"}>Profile</NavLink>
+          </li>
           <div className="divider"></div>
           <li>
             <NavLink to={"/"}>Home</NavLink>
