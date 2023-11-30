@@ -3,6 +3,7 @@ import BecomeMentor from "../../Components/BecomeMentor/BecomeMentor";
 import FeaturedCourse from "../../Components/FeaturedCourse/FeaturedCourse";
 import Footer from "../../Components/Footer/Footer";
 import HelmetTitle from "../../Components/HelmetTitle/HelmetTitle";
+import OnePlatfrom from "../../Components/OnePlatform/OnePlatfrom";
 import OurInstructors from "../../Components/OurInstructors/OurInstructors";
 import Partners from "../../Components/Partners/Partners";
 import ReviewSection from "../../Components/ReviewSection/ReviewSection";
@@ -18,6 +19,7 @@ const Home = () => {
       <Partners />
       <ReviewSection />
       <StatisticsSection />
+      <OnePlatfrom/>
       <OurInstructors />
       <BecomeMentor />
       <UpcomingEvents />

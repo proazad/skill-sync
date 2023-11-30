@@ -19,6 +19,7 @@ import InstructorAllCourse from "../Page/MentorDashboard/InstructorAllCourse";
 import MentorDashboard from "../Page/MentorDashboard/MentorDashboard";
 import MentorHome from "../Page/MentorDashboard/MentorHome";
 import UpdateCourse from "../Page/MentorDashboard/UpdateCourse";
+import Payment from "../Page/Payment/Payment";
 import StudentSignup from "../Page/Registraion/StudentSignup";
 import Signin from "../Page/Signin/Signin";
 import StudentDashboard from "../Page/StudentDashboard/StudentDashboard";
@@ -43,6 +44,10 @@ const Router = createBrowserRouter([
             <CourseDetails />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/course/pay/:id",
+        element: <Payment />,
       },
       {
         path: "dashboard/student",

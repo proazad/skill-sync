@@ -1,12 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import useAuth from "./useAuth";
 import useAxiosPublic from "./useAxiosPublic";
 
 const useSingleCourse = (id) => {
   const axiosPublic = useAxiosPublic();
-  const { user} = useAuth();
   const {
-    data: course,
+    data: course={},
     isPending,
     refetch,
   } = useQuery({

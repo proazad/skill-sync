@@ -6,7 +6,7 @@ import useWhoAreYou from "../../Hooks/useWhoAreYou";
 
 const AddNewCourse = () => {
   const [whoareyou] = useWhoAreYou();
-  const id = whoareyou._id;
+  const id = whoareyou?._id;
   const navigate = useNavigate();
   const {
     register,
@@ -18,17 +18,18 @@ const AddNewCourse = () => {
     const course = {
       title: data.title,
       image: data.image,
+      label: data.label,
       price: parseFloat(data.price),
       duration: parseFloat(data.duration),
       lesson: parseFloat(data.lesson),
       description: data.description,
       mentorId: id,
       mentor: whoareyou.name,
+      mentorimage: whoareyou?.image,
       email: data.email,
-      isApproved: false,
-      enrolled: 0,
+      date: new Date(),
     };
-    axiosPrivate.post("/courses", course).then((res) => {
+    axiosPrivate.post("/courses/instructor", course).then((res) => {
       if (res.data.insertedId) {
         Swal.fire({
           position: "top-end",

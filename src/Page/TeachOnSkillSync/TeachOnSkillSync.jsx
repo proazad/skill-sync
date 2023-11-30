@@ -1,25 +1,48 @@
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import HelmetTitle from "../../Components/HelmetTitle/HelmetTitle";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosPrivate from "../../Hooks/useAxiosPrivate";
-import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
 import useWhoAreYou from "../../Hooks/useWhoAreYou";
 const TeachOnSkillSync = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
   const { displayName, email } = user;
-  const [whoareyou] = useWhoAreYou();
-
+  const [whoareyou, isLoading] = useWhoAreYou();
+  console.log(whoareyou);
   const axiosPrivate = useAxiosPrivate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  if (whoareyou.role === "instructor") {
-    return navigate("/instructor");
+  if (isLoading) {
+    return (
+      <div className="h-screen w-full flex flex-col items-center justify-center">
+        <h1 className="text-4xl lg:text-7xl text-green-600 font-bold">
+          Loading......
+        </h1>
+      </div>
+    );
+  } else if (whoareyou?.role === "instructor") {
+    return (
+      <div className="h-screen w-full flex flex-col items-center justify-center">
+        <h1 className="text-4xl lg:text-7xl text-green-600 font-bold">Wow!</h1>
+        <h1 className="text-4xl">Already You are a Teacher</h1>
+      </div>
+    );
+  } else if (whoareyou?.role === "admin") {
+    return (
+      <div className="h-screen w-full flex flex-col items-center justify-center">
+        <h1 className="text-3xl mb-3 lg:text-6xl text-green-600 font-bold">
+          Ready You Want to Teach!
+        </h1>
+        <h1 className="text-xl">
+          You can Teach with teacher beacuse you are super admin
+        </h1>
+      </div>
+    );
   }
 
   const onSubmit = (data) => {
