@@ -25,7 +25,7 @@ const FeaturedCard = ({ course }) => {
           src={image}
           alt={title}
           draggable="false"
-          className="object-cover"
+          className="h-64 w-full"
         />
       </div>
       <div className="p-4 flex flex-col flex-grow">
@@ -42,7 +42,7 @@ const FeaturedCard = ({ course }) => {
           <h2 className="text-base text-neutral font-semibold hover:text-green-600 transition duration-300 my-3 delay-500">
             {title}
           </h2>
-          <p className="text-xs">{description}</p>
+          <p className="text-xs">{description.slice(0,100).concat("...")}</p>
         </div>
         <Link
           to={`instructor/${mentorId}`}

@@ -33,7 +33,7 @@ const OurInstructors = () => {
                 src={instructor?.image}
                 alt={instructor?.name}
                 draggable="false"
-                className="rounded-md w-full"
+                className="rounded-md h-80 w-full"
               />
               <div className="flex flex-col items-center justify-center w-0 group-hover:w-full h-0 bg-green-600/50 p-5 absolute -left-20 group-hover:left-0 -bottom-10 group-hover:bottom-0 group-hover:h-full rounded-md transition-all duration-700 text-center">
                 <h2 className="text-2xl font-bold text-neutral my-2">

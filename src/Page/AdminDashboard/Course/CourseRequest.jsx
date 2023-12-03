@@ -8,6 +8,8 @@ const CourseRequest = () => {
   const pendingCourse = courses?.filter(
     (course) => course.isApproved === false
   );
+
+  // Course Approve
   const handleCourseApprove = (id) => {
     axiosPrivate.put(`courses/approve/${id}`).then((res) => {
       if (res.data.modifiedCount > 0) {
@@ -23,6 +25,7 @@ const CourseRequest = () => {
     });
   };
 
+  // Course Cancel
   const handleCourseCencel = (id) => {
     axiosPrivate.put(`/courses/cancel/${id}`).then((res) => {
       if (res.data.modifiedCount > 0) {
@@ -37,6 +40,7 @@ const CourseRequest = () => {
       }
     });
   };
+
   return (
     <div>
       <h2 className="text-4xl">All Course Request: {pendingCourse.length}</h2>
@@ -55,7 +59,7 @@ const CourseRequest = () => {
           </thead>
           <tbody>
             {pendingCourse?.map(
-              ({ _id, title, price, image, mentor, isreject }, index) => (
+              ({ _id, title, price, image, mentor, isrejected }, index) => (
                 <tr key={_id}>
                   <th>{index + 1}</th>
                   <td>
@@ -65,7 +69,7 @@ const CourseRequest = () => {
                   <td>${price}</td>
                   <td>{mentor}</td>
                   <td>
-                    {isreject ? (
+                    {isrejected ? (
                       <button className="btn btn-success btn-sm" disabled>
                         Approve
                       </button>
@@ -79,7 +83,7 @@ const CourseRequest = () => {
                     )}
                   </td>
                   <td>
-                    {isreject ? (
+                    {isrejected ? (
                       <span className="bg-error px-2 py-1 rounded-md font-semibold">
                         Rejected
                       </span>

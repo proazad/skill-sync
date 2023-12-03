@@ -29,7 +29,7 @@ const StudentSignup = () => {
             role: "student",
           };
           axiosPublic.post("/users", userinfo).then((res) => {
-            if (res.data.insertedId) {
+            if (res.data) {
               userLogOut().then(() => {
                 Swal.fire({
                   position: "top-end",
@@ -68,14 +68,6 @@ const StudentSignup = () => {
           />
         </div>
         <div className="flex-1 px-10">
-          <div className="join join-vertical lg:join-horizontal">
-            <Link to="/signup" className="btn join-item active">
-              Student Sign Up
-            </Link>
-            <Link to="/instructorSignup" className="btn join-item">
-              Instructor Sign UP
-            </Link>
-          </div>
           <h2 className="text-4xl my-5">Please Sign Up</h2>
           <form onSubmit={handleSubmit(onSubmit)} className="">
             <div className="form-control max-w-md">
@@ -218,7 +210,7 @@ const StudentSignup = () => {
               <input
                 type="submit"
                 className="btn btn-primary max-w-md uppercase"
-                value="Student Signup"
+                value="Signup"
               />
             </div>
             <p>

@@ -55,15 +55,7 @@ const Signin = () => {
           />
         </div>
         <div className="flex-1 px-10">
-          <div className="join join-vertical lg:join-horizontal">
-            <Link to="/signin" className="btn join-item active">
-              Student Sign in
-            </Link>
-            <Link to="/instructorSignin" className="btn join-item">
-              Instructor Sign in
-            </Link>
-          </div>
-          <h2 className="text-4xl my-5">Please Sign in (Student)</h2>
+          <h2 className="text-4xl my-5">Please Sign in</h2>
           <form onSubmit={handleSubmit(onSubmit)} className="">
             <div className="form-control max-w-md">
               <label>

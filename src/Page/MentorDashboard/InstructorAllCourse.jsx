@@ -1,8 +1,36 @@
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAxiosPrivate from "../../Hooks/useAxiosPrivate";
 import useCourseByEmail from "../../Hooks/useCourseByEmail";
 
 const InstructorAllCourse = () => {
-  const [mycourses] = useCourseByEmail();
+  const [mycourses, , refetch] = useCourseByEmail();
+  const axiosPrivate = useAxiosPrivate();
+
+  const handleDeleteCourse = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosPrivate.delete(`/courses/del/${id}`).then((res) => {
+          if (res.data.deletedCount === 1) {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          }
+          refetch();
+        });
+      }
+    });
+  };
   return (
     <div className="my-10">
       <h2 className="text-4xl">
@@ -17,7 +45,8 @@ const InstructorAllCourse = () => {
               <th>Name</th>
               <th>Email</th>
               <th>Status</th>
-              <th>Action</th>
+              <th>Details</th>
+              <th>Update</th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -49,11 +78,25 @@ const InstructorAllCourse = () => {
                     )}
                   </td>
                   <td>
+                    {isApproved ? (
+                      <Link
+                        to={`/instructor/course/details/${_id}`}
+                        className="btn btn-info btn-sm"
+                      >
+                        Details
+                      </Link>
+                    ) : (
+                      <button className="btn btn-info btn-sm" disabled>
+                        Details
+                      </button>
+                    )}
+                  </td>
+                  <td>
                     <Link
                       to={`/instructor/course/${_id}`}
-                      className="btn btn-error btn-sm"
+                      className="btn btn-info btn-sm"
                     >
-                      Edit
+                      Update
                     </Link>
                   </td>
                   <td>
@@ -62,7 +105,12 @@ const InstructorAllCourse = () => {
                         delete
                       </button>
                     ) : (
-                      <button className="btn btn-error btn-sm">delete</button>
+                      <button
+                        onClick={() => handleDeleteCourse(_id)}
+                        className="btn btn-error btn-sm"
+                      >
+                        delete
+                      </button>
                     )}
                   </td>
                 </tr>

@@ -28,9 +28,11 @@ const AddNewCourse = () => {
       mentorimage: whoareyou?.image,
       email: data.email,
       date: new Date(),
+      isApproved: false,
+      enrolled:0,
     };
     axiosPrivate.post("/courses/instructor", course).then((res) => {
-      if (res.data.insertedId) {
+      if (res.data._id) {
         Swal.fire({
           position: "top-end",
           icon: "success",

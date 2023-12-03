@@ -32,10 +32,10 @@ const ParnterSlider = ({ item, cssClass }) => {
           key={index}
           className="h-full select-none border p-5 rounded-md"
         >
-          <div className="h-44">
-            <img src={partner.image} alt={partner.name} className="w-full" />
+          <div className="">
+            <img src={partner.image} alt={partner.name} className="h-60 w-full" />
           </div>
-          <div className="text-center my-4">
+          <div className="text-center my-5">
             <h2 className="text-xl font-semibold">{partner.name}</h2>
             <h2 className="text-base text-neutral">
               {partner.description.slice(0, 65)}

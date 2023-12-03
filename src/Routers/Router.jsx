@@ -16,6 +16,7 @@ import Errorpage from "../Page/Errorpage/Errorpage";
 import Home from "../Page/Home/Home";
 import AddNewCourse from "../Page/MentorDashboard/AddNewCourse";
 import InstructorAllCourse from "../Page/MentorDashboard/InstructorAllCourse";
+import MentorCourseDetails from "../Page/MentorDashboard/MentorCourseDetails";
 import MentorDashboard from "../Page/MentorDashboard/MentorDashboard";
 import MentorHome from "../Page/MentorDashboard/MentorHome";
 import MentorProfile from "../Page/MentorDashboard/MentorProfile";
@@ -23,8 +24,11 @@ import UpdateCourse from "../Page/MentorDashboard/UpdateCourse";
 import Payment from "../Page/Payment/Payment";
 import StudentSignup from "../Page/Registraion/StudentSignup";
 import Signin from "../Page/Signin/Signin";
+import AssinmentPage from "../Page/StudentDashboard/AssinmentPage";
+import MyEnrolledClass from "../Page/StudentDashboard/MyEnrolledClass";
 import StudentDashboard from "../Page/StudentDashboard/StudentDashboard";
 import StudentHome from "../Page/StudentDashboard/StudentHome";
+import StudentProfile from "../Page/StudentDashboard/StudentProfile";
 import TeachOnSkillSync from "../Page/TeachOnSkillSync/TeachOnSkillSync";
 import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
@@ -61,6 +65,18 @@ const Router = createBrowserRouter([
           {
             path: "/dashboard/student",
             element: <StudentHome />,
+          },
+          {
+            path: "/dashboard/student/profile",
+            element: <StudentProfile />,
+          },
+          {
+            path: "/dashboard/student/course",
+            element: <MyEnrolledClass />,
+          },
+          {
+            path: "/dashboard/student/myenroll-class/:id",
+            element: <AssinmentPage />,
           },
         ],
       },
@@ -135,6 +151,10 @@ const Router = createBrowserRouter([
       { path: "/instructor/course", element: <InstructorAllCourse /> },
       { path: "/instructor/newcourse", element: <AddNewCourse /> },
       { path: "/instructor/course/:id", element: <UpdateCourse /> },
+      {
+        path: "/instructor/course/details/:id",
+        element: <MentorCourseDetails />,
+      },
     ],
   },
 ]);

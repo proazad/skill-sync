@@ -10,7 +10,6 @@ const TeachOnSkillSync = () => {
   const { user } = useAuth();
   const { displayName, email } = user;
   const [whoareyou, isLoading] = useWhoAreYou();
-  console.log(whoareyou);
   const axiosPrivate = useAxiosPrivate();
   const {
     register,
@@ -59,11 +58,11 @@ const TeachOnSkillSync = () => {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Sign in Successfull",
+            title: "Teacher Request Submited",
             showConfirmButton: false,
             timer: 2500,
           });
-          navigate("/instructore");
+          navigate("/");
         }
       });
   };

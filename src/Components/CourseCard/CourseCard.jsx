@@ -27,7 +27,7 @@ const CourseCard = ({ course }) => {
           src={image}
           alt={title}
           draggable="false"
-          className="object-cover"
+          className="h-64 w-full"
         />
       </div>
       <div className="p-4 flex flex-col flex-grow">
@@ -54,7 +54,7 @@ const CourseCard = ({ course }) => {
             />
             {ratings}
           </span>
-          <p className="text-xs">{description}</p>
+          <p className="text-xs">{description.slice(0,100).concat("...")}</p>
         </div>
         <Link
           to={`instructor/${mentorId}`}

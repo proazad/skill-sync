@@ -44,14 +44,9 @@
     "role": "student"
   },
   {
-    "name": "Sophia Turner",
-    "image": "https://i.ibb.co/FDV0dqy/man4.webp",
-    "enrolledCourseId": 12,
-    "completedCourseId": 20,
-    "fathersName": "Ethan Turner",
-    "mothersName": "Emma Turner",
-    "email": "sophia.turner@example.com",
-    "phoneNumber": "+1 (555) 567-8901",
+    "name": "Mehedi Hasan Miraj",
+    "image": "https://i.ibb.co/yygX1gr/Getty-Images-688905782-e1517998504495.webp",
+    "email": "mehedi@gmail.com",
     "role": "student"
   },
   {
@@ -659,17 +654,13 @@
     "phoneNumber": "+1 (555) 012-3456",
     "role": "student"
   },
-  {
-    "name": "Kawsar Kabir",
-    "email": "kawsarkabir11@gmail.com",
-    "image": "",
-    "role": "moderator"
-  },
+  ,
   {
     "name": "Just Tutorial",
     "email": "jtutorial21@gmail.com",
     "image": "https://lh3.googleusercontent.com/a/ACg8ocKxT76EgQsK5ZDMuamjPGnrRmncQRUp1psr6v1bwsf5=s96-c",
-    "role": "student"
+    "role": "student",
+    "IswantInstructor": true
   },
   {
     "name": "John Smith",
@@ -786,5 +777,30 @@
     "students": 85,
     "label": "Expart",
     "IswantInstructor": true
+  },
+  {
+    "name": "Hasin Haydar",
+    "email": "hasin@me.com",
+    "image": "https://i.ibb.co/r3q74xP/hasin-hayder-800x800.jpg",
+    "IswantInstructor": false
+  },
+  {
+    "name": "Jhankar Mahbub",
+    "email": "jhankar@programinghero.com",
+    "image": "https://i.ibb.co/dQ6Qh1x/1677507598430.jpg",
+    "IswantInstructor": false,
+    "password": "Adfasd!232"
+  },
+  {
+    "name": "Sumit Saha",
+    "email": "sumitsaha@gmail.com",
+    "image": "https://i.ibb.co/LrSFVF5/134994596-1ec5-5.jpg",
+    "IswantInstructor": false
+  },
+  {
+    "name": "Anisul Islam",
+    "email": "anisulislam@gmail.com",
+    "image": "https://i.ibb.co/mzHWw9z/unnamed.jpg",
+    "IswantInstructor": false
   }
 ]

@@ -8,7 +8,7 @@ const useCourseByEmail = () => {
   const {
     data: mycourses = [],
     isPending,
-    refetch,
+    refetch
   } = useQuery({
     queryKey: [user?.email,"mycourses"],
     enabled: !loading && !!localStorage.getItem("access_token"),

@@ -5,7 +5,7 @@ const InstructorRoute = ({ children }) => {
   const [whoareyou, isLoading, refetch] = useWhoAreYou();
   const navigate = useNavigate();
   refetch();
-  if (isLoading) {
+  if (isLoading && !whoareyou) {
     return (
       <div className="flex justify-center items-center h-screen w-screen">
         <progress className="progress progress-success w-56 h-5"></progress>

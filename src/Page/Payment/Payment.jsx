@@ -54,6 +54,7 @@ const Payment = () => {
                             showConfirmButton: false,
                             timer: 1500
                           });
+                          refetch();
                     }
                 })
               }

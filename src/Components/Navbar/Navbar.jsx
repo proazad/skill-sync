@@ -6,7 +6,6 @@ import SiteLogo from "../siteTitle/SiteLogo";
 const Navbar = () => {
   const { user, userLogOut } = useAuth();
   const [whoareyou] = useWhoAreYou();
-
   const navigate = useNavigate();
   const handleLogOut = () => {
     userLogOut().then(() => {

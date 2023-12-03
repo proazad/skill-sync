@@ -2,21 +2,23 @@ import CountUp from "react-countup";
 import { FaUserGraduate } from "react-icons/fa";
 import { FaBookOpenReader } from "react-icons/fa6";
 import { MdBookmarkAdded } from "react-icons/md";
+import useAllCourse from "../../Hooks/useAllCourse";
 import useAllUsers from "../../Hooks/useAllUsers";
 import SectionHead from "../SectionHead/SectionHead";
-import useAllCourse from "../../Hooks/useAllCourse";
 const StatisticsSection = () => {
   const [courses] = useAllCourse();
   const approvedCourse = courses?.filter(
     (course) => course.isApproved === true
   );
+  console.log(approvedCourse);
   const [users] = useAllUsers();
   const students = users?.filter((student) => student.role === "student");
 
   const totalEnrolled = approvedCourse?.reduce(
-    (total, course) => total + course.enrolled,
+    (total, course) => total + course?.enrolled,
     0
   );
+  console.log(totalEnrolled);
   return (
     <section className="container mx-auto px-2 md:px-5 xl:px-0 my-10">
       <SectionHead
@@ -48,7 +50,7 @@ const StatisticsSection = () => {
             <MdBookmarkAdded />
           </h6>
           <h2 className="text-5xl font-bold mt-5 text-neutral/90">
-            <CountUp end={totalEnrolled} duration={15} />+
+            <CountUp end={totalEnrolled?totalEnrolled:0} duration={15} />+
           </h2>
           <h2 className="text-base font-semibold text-neutral/90">
             Enrollment
