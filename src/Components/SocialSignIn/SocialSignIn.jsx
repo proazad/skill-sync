@@ -17,8 +17,9 @@ const SocialSignIn = () => {
           name: res?.user?.displayName,
           email: res?.user?.email,
           photo: res?.user?.photoURL,
+          role:"student"
         };
-        axiosPublic.post("/students", userInfo).then((res) => {
+        axiosPublic.post("/users", userInfo).then((res) => {
           if (res?.data?.insertedId) {
             Swal.fire({
               position: "top-end",

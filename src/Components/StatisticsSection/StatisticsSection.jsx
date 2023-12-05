@@ -10,7 +10,6 @@ const StatisticsSection = () => {
   const approvedCourse = courses?.filter(
     (course) => course.isApproved === true
   );
-  console.log(approvedCourse);
   const [users] = useAllUsers();
   const students = users?.filter((student) => student.role === "student");
 
@@ -18,7 +17,6 @@ const StatisticsSection = () => {
     (total, course) => total + course?.enrolled,
     0
   );
-  console.log(totalEnrolled);
   return (
     <section className="container mx-auto px-2 md:px-5 xl:px-0 my-10">
       <SectionHead
