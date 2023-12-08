@@ -1,5 +1,5 @@
 # SkillSync Hub
-
+Live Site Link [https://skillsync-hub.surge.sh/]
 ## Description
 
 [Provide a brief overview of your project, its purpose, and key features.]
@@ -8,7 +8,7 @@
 
 - [Key Features](#key-features)
 - [How to Use](#how-to-use)
-- [Contributing](#contributing)
+- [Technology](#technology)
 - [License](#license)
 
 ## Key Features
@@ -40,3 +40,12 @@
 7. **Teaching Opportunities:**
 
    - There Profile options for Teacher, The teacher can Add New Class
+
+## Technology 
+ - React JS
+ - Mongoose
+ - Firebase
+ - JWT
+ - Express JS
+ - Tailwind CSS
+ - 
